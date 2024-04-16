@@ -1,0 +1,27 @@
+pruebas del codigo:
+
+prueba ramdon 
+ inicio el codigo
+"Bienvenido al juego qu explotara tu cabeza"
+me pide ingresar el numero de filas el cual ingrese: 2
+luego me pide el numero de columnas del tablero el cual puse: 2
+
+epieza el juego con una frase particular 
+ y el tablero lo que me arroja es:
+
+* d
+3 b
+
+luego empizas a adivinar: d 
+¡lo lograste! adivinaste el valor secreto
+
+¿quieres jugar de nuevo? (s/n): s
+// y empieza de nuevo 
+
+h d
+* b
+valor: b
+no; sigue intentando 
+
+
+// y asi hasta que se cumplan 5 intentos, si se cumplen los 5 intentos te dira la respuesta y te pregunta que si quieres una nueva paratida o no si elijes no se para el codigo 
