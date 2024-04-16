@@ -1,0 +1,104 @@
+Start
+Program_Juego_adivinar
+//Este programa es un juego quese trata de adivinar el valor oculto detras de un asterisco 
+
+// Declaracion de Variables: //una disculpa por la forma de declarar :)        
+
+    size: tuple
+    options: list
+    board: list de lists de INTEGER y string
+    hidden_board: list de lists de INTEGER y string
+    hidden_value: INTEGER or string
+    hidden_row: INTEGER
+    hidden_column: INTEGER
+    attempts: INTEGER
+    guess: string
+    play_again: string
+
+Function generate_board(size, options)
+    // Genera un tablero con números aleatorios y opciones adicionales
+    board = Tablero vacío
+    For cada row in size.rows do
+        New_row = Lista vacía
+        For cada column in size.columns do
+            If hay opciones adicionales then
+                valor = Número aleatorio entre 1 y 10 o una opción aleatoria de las opciones
+            Else
+                valor = Número aleatorio entre 1 y 10
+            End_If
+            Agregar valor a New_row
+        End_For
+        Agregar New_row a board
+    End_For
+    return board
+End_Function
+
+Function show_board(board)
+    // Muestra el tablero al jugador
+    For cada row in board do
+        For cada element in row do
+            Print element y un espacio
+        End_For
+        Print nueva línea
+    End_For
+End_Function
+
+Function hidde_value(board)
+    // Oculta un valor aleatorio en el tablero
+    hidden_row = Número aleatorio entre 1 y size.rows
+    hidden_column = Número aleatorio entre 1 y size.column
+    hidden_value = board[hidden_row][hidden_column]
+    board[hidden_row][hidden_column] = '*'
+    return hidden_value, board
+End_Function
+
+Function Play(size, options)
+    // Juega el juego de adivinanzas
+    board = generate_board(size, opctions)
+    hidden_value, hidden board = hidden_value(board)
+    show_board(hidden_board)
+    
+    attempts = 0
+    While True do
+        Obtener suposición del usuario
+        attempts = attempts + 1
+        
+        Intentar
+            Convertir suposición a número INTEGER
+            If suposición igual a hidden_value then
+                Print "¡Correcto! Lo has adivinado en", intentos, "intentos."
+                Salir del bucle
+            Elif attenmpts >= 5 then
+                Print "Lo siento, te has equivocado más de 5 veces. La respuesta correcta es:", valor_oculto
+                Salir del bucle
+           Else
+                Print "Incorrecto, intenta de nuevo."
+            End_If
+        Capturar Error
+            Print "Por favor, ingresa un número válido."
+        End_Intentar
+    End_While
+End_Function
+
+Start del programa
+    Print "Bienvenido al juego de adivinanzas"
+    size.rows = Leer entero desde el usuario "Ingresa el número de filas del tablero: "
+    size.column = Leer entero desde el usuario "Ingresa el número de columnas del board: "
+    
+    additional_options = Leer cadena desde el usuario "¿Quieres agregar opciones adicionales al tablero? (s/n): "
+    If additional_options es 's' then
+        options = Leer lista de opciones desde el usuario "Ingresa las opciones adicionales separadas por comas: "
+    Else
+        options = lista vacia 
+    End_If
+    
+    jugar(size, options)
+    
+    While True do
+        Play_again = Leer string desde el usuario "¿Quieres jugar de nuevo? (s/n):" 
+        If Play_again no es 's' then
+            Salir del bucle
+        End_If
+        jugar(size, options)
+    End_While
+END
