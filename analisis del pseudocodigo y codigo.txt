@@ -1,0 +1,66 @@
+Analisis de juego dia 15/04/2024
+
+
+este juego se trata de adivinar el valor oculto por un asterisco ya sea numero o letra este juego es muy interactivo y te "explotara la cabeza"
+Enpezemos:
+
+generate_boart(size, options)
+show_boart(board)
+hide_value(board)
+hide_value(board) retum value, board
+play_game(size, options)
+main()
+
+board es el tablero del juego, que es una lista de listas
+row es el índice de la fila en la que se encuentra la celda
+col es el índice de la columna en la que se encuentra la celda
+Entonces, board[row][col] se refiere al valor contenido en la celda ubicada en la fila row y columna col del tablero
+
+Por ejemplo, si queremos acceder al valor de la celda en la segunda fila y tercera columna del tablero, utilizaríamos board[1][2], ya que los índices comienzan desde cero.
+
+Generación del tablero (generate_board): Esta función crea un tablero de juego con un tamaño dado (size) y llena cada celda con un valor aleatorio de una lista de opciones(options).
+
+Mostrar el tablero (show_board): Esta función imprime el tablero para que el jugador pueda verlo.
+
+Ocultar un valor (hide_value): Esta función selecciona una celda aleatoria en el tablero y oculta su valor reemplazándolo con un asterisco (*) despues muestra el tablero con el valor oculto.
+
+Jugar el juego (play_game): Esta función inicia el juego. Primero, genera un tablero utilizando generate_board y lo muestra al jugador utilizando show_board. Luego, oculta un valor en el tablero utilizando hide_value y le pide al jugador que adivine el valor oculto. Si el jugador adivina correctamente, el juego termina; de lo contrario, se le pide que intente nuevamente hasta que adivine correctamente.
+
+Función principal (main): En la función principal, se definen el tamaño del tablero (size) y las opciones disponibles para llenar el tablero (options). Luego, se llama a play_game con estos parámetros para comenzar el juego.
+
+
+
+:::::codigo en python
+
+Importación de bibliotecas: El programa importa el módulo random, que se utiliza para generar números aleatorios.
+
+Función generate_board(size, options):
+
+Esta función genera un tablero de tamaño especificado por el argumento size y lo llena con números aleatorios dentro de un rango predefinido.
+size es una tupla que indica el número de filas y columnas del tablero.
+options es una lista que contiene opciones adicionales que pueden agregarse a los números aleatorios en el tablero.
+La función devuelve el tablero generado.
+Función show_board(board):
+
+Esta función muestra el tablero al jugador imprimiendo cada fila en la consola.
+Recibe el tablero como argumento.
+Función hide_value(board):
+
+Esta función elige aleatoriamente una posición en el tablero y oculta el valor en esa posición con un asterisco ('*').
+Devuelve el valor oculto y el tablero modificado.
+Función play_game(size, options):
+
+Esta función controla el flujo principal del juego.
+Comienza generando un tablero y ocultando un valor.
+Luego muestra el tablero al jugador y solicita que adivine el valor oculto.
+Continúa solicitando al jugador que adivine hasta que adivine correctamente o hasta que haya realizado más de 5 intentos.
+Al final del juego, muestra el número de intentos realizados.
+Función main():
+
+Esta función es la entrada principal del programa.
+Da la bienvenida al jugador y solicita el tamaño del tablero.
+Luego, inicia el juego llamando a la función play_game() con el tamaño del tablero especificado.
+Después de cada juego, pregunta al jugador si quiere volver a jugar. Si el jugador responde "s", inicia otro juego; de lo contrario, el programa termina.
+Ejecución del programa:
+
+Finalmente, el programa comprueba si se está ejecutando como el script principal utilizando la condición if __name__ == "__main__": y llama a la función main() para comenzar la ejecución del juego.
